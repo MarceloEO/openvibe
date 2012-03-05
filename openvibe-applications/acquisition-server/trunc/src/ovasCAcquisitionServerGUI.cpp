@@ -12,6 +12,7 @@
 #include "ctfvsm-meg/ovasCDriverCtfVsmMeg.h"
 #include "egi-ampserver/ovasCDriverEGIAmpServer.h"
 #include "emotiv-epoc/ovasCDriverEmotivEPOC.h"
+#include "emokit-epoc/ovasCDriverEmokitEPOC.h"
 #include "gtec-gmobilabplus/ovasCDriverGTecGMobiLabPlus.h"
 #include "gtec-gusbamp/ovasCDriverGTecGUSBamp.h"
 #include "micromed-systemplusevolution/ovasCDriverMicromedSystemPlusEvolution.h"
@@ -133,6 +134,9 @@ CAcquisitionServerGUI::CAcquisitionServerGUI(const IKernelContext& rKernelContex
 	if(l_bShowUnstable) m_vDriver.push_back(new CDriverEGIAmpServer(m_pAcquisitionServer->getDriverContext()));
 #if defined TARGET_HAS_ThirdPartyEmotivAPI
 	m_vDriver.push_back(new CDriverEmotivEPOC(m_pAcquisitionServer->getDriverContext()));
+#endif
+#if defined TARGET_HAS_ThirdPartyEmokitAPI
+	m_vDriver.push_back(new CDriverEmokitEPOC(m_pAcquisitionServer->getDriverContext()));
 #endif
 #if defined TARGET_HAS_ThirdPartyGMobiLabPlusAPI
 	if(l_bShowUnstable) m_vDriver.push_back(new CDriverGTecGMobiLabPlus(m_pAcquisitionServer->getDriverContext()));

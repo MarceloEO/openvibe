@@ -23,6 +23,8 @@ INCLUDE("FindThirdPartyThinkGearAPI")
 INCLUDE("FindThirdPartyEmotivAPI")
 INCLUDE("FindThirdPartyOpenAL")
 
+ADD_DEFINITIONS(-DTARGET_HAS_ThirdPartyEmokitAPI)
+
 # ---------------------------------
 # Target macros
 # Defines target operating system
